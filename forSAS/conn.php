@@ -80,6 +80,14 @@ class database{
 		return $hasil;
 	}
 
+	function ganti_password(String $nik,  String $password_baru)
+	{
+		$password_baru = password_hash($password_baru, PASSWORD_DEFAULT);
+		$sql = "UPDATE `user` SET `password`='". $password_baru ."' WHERE `nik` = '". $nik ."'";
+		$query = mysqli_query($this->koneksi, $sql);
+		return $query;
+	}
+
 	
 
 	
